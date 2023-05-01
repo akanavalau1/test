@@ -1,6 +1,6 @@
 const fs = require('fs')
 const puppeteer = require('puppeteer')
-const lighthouse = require('lighthouse')
+const lighthouse = require('puppeteer-lighthouse')
 
 const waitTillHTMLRendered = async (page, timeout = 30000) => {
   const checkDurationMsecs = 1000;
