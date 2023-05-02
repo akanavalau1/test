@@ -1,0 +1,10 @@
+{
+  "simulation": "simulations.PerfTestSimulation",
+  "simulationId": "perftestsimulation",
+  "start": 1682721103476,
+  "description": "",
+  "scenarios": ["Shopiezer page open"],
+  "assertions": [
+
+  ]
+}

@@ -12,7 +12,7 @@ import scala.concurrent.duration._
 class PerfTestSimulation extends Simulation {
   val numUsers: Int = System.getProperty("users","100").toInt
   val url: String = System.getProperty("baseUrl", BaseHelpers.baseUrl)
-  val duration: FiniteDuration = System.getProperty("duration", "1").toInt.minutes
+  val duration: FiniteDuration = System.getProperty("duration", "1m").toInt.minutes
 
   //mvn gatling:test
 
