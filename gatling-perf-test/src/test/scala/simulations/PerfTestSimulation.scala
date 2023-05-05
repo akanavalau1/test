@@ -21,7 +21,7 @@ class PerfTestSimulation extends Simulation {
   val httpConf: HttpProtocolBuilder = http.baseUrl(baseUrl)
   setUp(
     //scnShopiezer.inject(constantUsersPerSec(users) during(duration)
-    scnShopiezer.inject(rampUsers(users) during(rampUp)
+    scnShopiezer.inject(rampUsersPerSec(1).to(users).during(rampUp).randomized
 
   ).protocols(httpConf)
 
