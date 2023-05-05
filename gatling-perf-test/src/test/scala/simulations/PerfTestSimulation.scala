@@ -10,7 +10,7 @@ import scenarios.Shopiezer.scnShopiezer
 import scala.concurrent.duration._
 
 class PerfTestSimulation extends Simulation {
-  val numUsers: Int = System.getProperty("users","100").toInt
+  val users: Int = System.getProperty("users","1").toInt
   val url: String = System.getProperty("baseUrl", BaseHelpers.baseUrl)
   val duration: FiniteDuration = System.getProperty("duration", "1").toInt.seconds
 
@@ -19,8 +19,8 @@ class PerfTestSimulation extends Simulation {
 
   val httpConf: HttpProtocolBuilder = http.baseUrl(baseUrl)
   setUp(
-    //scnShopiezer.inject(constantUsersPerSec(numUsers) during(duration)
-    scnShopiezer.inject(rampUsers(numUsers) during(duration)
+    scnShopiezer.inject(constantUsersPerSec(users) during(duration)
+    //scnShopiezer.inject(rampUsers(numUsers) during(duration)
 
   ).protocols(httpConf)
 
