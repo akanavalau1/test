@@ -22,7 +22,7 @@ class PerfTestSimulation extends Simulation {
 
   setUp(
     //scnShopiezer.inject(constantUsersPerSec(numUsers) during(duration)
-    scnShopiezer.inject(rampUsers(users) during (rampUp),constantUsersPerSec(1.5) during (duration-rampUp))
+    scnShopiezer.inject(rampUsers(100) during (rampUp),constantUsersPerSec(users) during (duration-rampUp))
 
   ).protocols(httpConf)
 }
