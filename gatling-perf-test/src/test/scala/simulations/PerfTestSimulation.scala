@@ -15,15 +15,14 @@ class PerfTestSimulation extends Simulation {
   val duration: FiniteDuration = System.getProperty("duration", "1").toInt.seconds
   val rampUp: FiniteDuration = System.getProperty("rampUp", "10").toInt.seconds
 
-
-
   //mvn gatling:test
 
   val httpConf: HttpProtocolBuilder = http.baseUrl(baseUrl)
+
+
   setUp(
     //scnShopiezer.inject(constantUsersPerSec(numUsers) during(duration)
-    scnShopiezer.inject(rampUsersPerSec(1).to(numUsers).during(rampUp),
-      constantUsersPerSec(numUsers).during(duration - rampUp)
+    scnShopiezer.inject(rampUsersPerSec(1).to(numUsers).during(rampUp),constantUsersPerSec(0) during (duration - rampUp))
+
   ).protocols(httpConf)
-  )
 }
