@@ -13,8 +13,8 @@ class PerfTestSimulation extends Simulation {
   val users: Int = System.getProperty("users","1").toInt
   val url: String = System.getProperty("baseUrl", BaseHelpers.baseUrl)
   val duration: FiniteDuration = System.getProperty("duration", "1").toInt.seconds
-  val rampUp: FiniteDuration = System.getProperty("rampUp", "10").toInt.seconds
-  val rampUpUsers: Int = System.getProperty("rampUpUsers","10").toInt
+  //val rampUp: FiniteDuration = System.getProperty("rampUp", "10").toInt.seconds
+  //val rampUpUsers: Int = System.getProperty("rampUpUsers","10").toInt
 
 
   //mvn gatling:test
@@ -24,7 +24,7 @@ class PerfTestSimulation extends Simulation {
 
   setUp(
     //scnShopiezer.inject(constantUsersPerSec(numUsers) during(duration)
-    scnShopiezer.inject(rampUsers(rampUpUsers) during (rampUp),constantUsersPerSec(users) during (duration-rampUp))
+    scnShopiezer.inject(/*rampUsers(rampUpUsers) during (rampUp),*/constantUsersPerSec(users) during (duration/*-rampUp*/))
 
   ).protocols(httpConf)
 }
