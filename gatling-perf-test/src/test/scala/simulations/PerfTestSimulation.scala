@@ -14,14 +14,17 @@ class PerfTestSimulation extends Simulation {
   val url: String = System.getProperty("baseUrl", BaseHelpers.baseUrl)
   val duration: FiniteDuration = System.getProperty("duration", "1").toInt.seconds
 
+
   //mvn gatling:test
 
   val httpConf: HttpProtocolBuilder = http.baseUrl(baseUrl)
   setUp(
-    scnShopiezer.inject(constantUsersPerSec(numUsers) during(duration)
+    //scnShopiezer.inject(constantUsersPerSec(numUsers) during(duration)
+    scnShopiezer.inject(rampUsers(numUsers) during(duration)
 
   ).protocols(httpConf)
 
   ).maxDuration(duration)
+
 
 }
